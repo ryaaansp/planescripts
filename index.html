@@ -120,7 +120,7 @@ Object.entries(data).forEach(([cat,arr])=>{
  arr.slice(1).forEach(s=>{const [name,desc,url]=s.split("|");const el=document.createElement("article");el.className="item";el.innerHTML='<div class="item-top"><div class="name">'+name+'</div><span class="tag">externo</span></div><div class="desc">'+desc+'</div><a class="link" href="'+url+'" target="_blank" rel="noopener noreferrer">Visitar site ↗</a>';list.appendChild(el)});
  inner.appendChild(list);wrap.appendChild(inner);sec.append(btn,wrap);btn.onclick=()=>sec.classList.toggle("open");root.appendChild(sec);
 });
-const modal=document.getElementById("termsModal"),modalX=document.getElementById("modalX"),countdown=document.getElementById("countdown");let n=3;countdown.textContent=n;const iv=setInterval(()=>{n--;if(n<=0){clearInterval(iv);modalX.disabled=false;modalX.classList.add("ready");countdown.textContent="×"}else countdown.textContent=n},1000);
+const modal=document.getElementById("termsModal"),modalX=document.getElementById("modalX"),countdown=document.getElementById("countdown");let n=3;countdown.textContent=n;let iv=setInterval(()=>{n-=1;if(n>0){countdown.textContent=n;return}clearInterval(iv);modalX.disabled=false;modalX.classList.add("ready");countdown.textContent="×"},1000);
 const closeModal=()=>{modal.style.display="none";document.body.classList.remove("modal-open")};modalX.onclick=closeModal;
 function showTerms(){modal.style.display="grid";document.body.classList.add("modal-open")}
 

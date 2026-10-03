@@ -128,7 +128,7 @@ function closeModal(){const m=document.getElementById("termsModal");if(m)m.remov
 function showTerms(){const m=document.getElementById("termsModal");if(m){m.style.display="grid";document.body.classList.add("modal-open")}}
 
 const searchInput=document.getElementById("searchInput"),clearSearch=document.getElementById("clearSearch"),searchStatus=document.getElementById("searchStatus");
-function normalizeSearch(v){return v.normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().trim()}
+function normalizeSearch(v){return v.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim()}
 function runSearch(){
  const q=normalizeSearch(searchInput.value);
  let visible=0;

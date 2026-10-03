@@ -15,10 +15,17 @@ footer{border-top:1px solid var(--line);background:#07090d;margin-top:10px}.foot
 @media(max-width:700px){.footer-inner{grid-template-columns:1fr 1fr}.footer-inner>div:first-child{grid-column:1/-1}.hero{padding-top:55px}.cat-btn{padding:22px 18px}.cat-title{font-size:16px}}
 @media(max-width:480px){.footer-inner{grid-template-columns:1fr}.footer-inner>div:first-child{grid-column:auto}.hero h1{font-size:47px}}
 .footer-about{min-width:0}.footer-links-title{margin-top:22px!important}.footer-link{display:inline-block!important;margin-top:2px}.developer-card{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #292d33;border-radius:13px;background:#0c0f14}.dev-mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:#20242b;border:1px solid #3b3f46;color:#d6bd70;font-weight:900}.developer-card div:last-child{display:flex;flex-direction:column}.developer-card strong{font-size:13px}.developer-card span{font-size:10px;color:#818895;margin-top:2px}.footer-bottom-inner{width:min(1040px,calc(100% - 32px));margin:auto;display:flex;justify-content:space-between;gap:10px}.footer-bottom{padding:16px 0;color:#626a78;font-size:11px}@media(max-width:700px){.footer-bottom-inner{flex-direction:column}.footer-inner{grid-template-columns:1fr 1fr}.footer-inner>div:first-child{grid-column:1/-1}}@media(max-width:480px){.footer-inner{grid-template-columns:1fr}.footer-inner>div:first-child{grid-column:auto}}<style>
-.brand-logo{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:clamp(42px,8vw,76px)!important;letter-spacing:-.06em!important}
-.plane-word{color:#fff}.students-word{color:var(--accent2);font-size:.55em;letter-spacing:-.04em}
-.orbit-plane{position:absolute;left:50%;top:50%;width:1em;height:1em;transform:translate(-50%,-50%);border:2px solid transparent;border-radius:50%;animation:planeOrbit 3.5s linear infinite;color:var(--accent2);font-size:.27em;display:grid;place-items:center}
-@keyframes planeOrbit{from{transform:translate(-50%,-50%) rotate(0deg) translateX(2.35em) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(2.35em) rotate(-360deg)}}
+.brand-logo{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:clamp(42px,8vw,76px)!important;letter-spacing:-.065em!important;white-space:nowrap}
+.plane-word{color:#fff;position:relative;z-index:2}.students-word{color:var(--accent2);font-size:.55em;letter-spacing:-.04em;position:relative;z-index:2}
+.plane-orbit{position:absolute;left:50%;top:50%;width:2.05em;height:1.15em;transform:translate(-50%,-50%);pointer-events:none;animation:planeOrbit 4.2s linear infinite}
+.plane-3d{position:absolute;left:50%;top:50%;display:block;font-size:.30em;color:#f1d98b;text-shadow:1px 1px 0 #9b7d32,2px 2px 0 #5d4a22,0 0 12px #c6a95b99;filter:drop-shadow(0 4px 3px #000);transform:translate(-50%,-50%) rotate(-12deg) perspective(180px) rotateX(18deg);transform-origin:center}
+@keyframes planeOrbit{
+0%{transform:translate(-50%,-50%) rotate(-8deg) translateX(-2.05em) translateY(-.02em) rotate(8deg)}
+25%{transform:translate(-50%,-50%) rotate(82deg) translateX(-2.05em) translateY(-.02em) rotate(-82deg)}
+50%{transform:translate(-50%,-50%) rotate(172deg) translateX(-2.05em) translateY(-.02em) rotate(-172deg)}
+75%{transform:translate(-50%,-50%) rotate(262deg) translateX(-2.05em) translateY(-.02em) rotate(-262deg)}
+100%{transform:translate(-50%,-50%) rotate(352deg) translateX(-2.05em) translateY(-.02em) rotate(-352deg)}
+}
 </style></style>
 </head>
 <body class="modal-open">
@@ -31,7 +38,7 @@ footer{border-top:1px solid var(--line);background:#07090d;margin-top:10px}.foot
 </div>
 </div>
 <header class="hero wrap">
-<h1 class="brand-logo"><span class="plane-word">PLANE</span><span class="orbit-plane" aria-hidden="true">✈</span><span class="students-word">FORSTUDENTS</span></h1>
+<h1 class="brand-logo"><span class="plane-word">PLANE</span><span class="plane-orbit" aria-hidden="true"><span class="plane-3d">✈</span></span><span class="students-word">FORSTUDENTS</span></h1>
 <p>Uma central organizada para encontrar scripts e ferramentas por plataforma. Abra uma categoria, veja as opções e acesse o site desejado.</p>
 <div class="hint">▼ Explore as categorias abaixo</div>
 </header>

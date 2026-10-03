@@ -126,7 +126,32 @@ function showTerms(){modal.style.display="grid";document.body.classList.add("mod
 
 const searchInput=document.getElementById("searchInput"),clearSearch=document.getElementById("clearSearch"),searchStatus=document.getElementById("searchStatus");
 function normalizeSearch(v){return v.normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().trim()}
-function runSearch(){const q=normalizeSearch(searchInput.value);let visible=0;document.querySelectorAll(".category").forEach(sec=>{const text=normalizeSearch(sec.textContent);const match=!q||text.includes(q);sec.classList.toggle("search-hidden",!match);sec.classList.toggle("search-match",!!q&&match);if(match)visible++;});clearSearch.style.display=q?"block":"none";searchStatus.textContent=q?(visible?visible+" categoria"+(visible===1?" encontrada":"s encontradas"):"Nenhuma categoria encontrada"):"";}
+function runSearch(){
+ const q=normalizeSearch(searchInput.value);
+ let visible=0;
+ document.querySelectorAll(".category").forEach(sec=>{
+   const title=normalizeSearch(sec.querySelector(".cat-title")?.textContent||"");
+   const desc=normalizeSearch(sec.querySelector(".cat-desc")?.textContent||"");
+   const items=[...sec.querySelectorAll(".item")];
+   if(!q){sec.classList.remove("search-hidden","search-match");items.forEach(i=>i.style.display="");return;}
+   const titleMatch=title===q||title.includes(q);
+   const descMatch=desc.includes(q);
+   let itemMatches=0;
+   items.forEach(item=>{
+     const name=normalizeSearch(item.querySelector(".name")?.textContent||"");
+     const itemDesc=normalizeSearch(item.querySelector(".desc")?.textContent||"");
+     const match=name===q||name.includes(q)||itemDesc.includes(q);
+     item.style.display=match?"":"none";
+     if(match)itemMatches++;
+   });
+   const match=titleMatch||descMatch||itemMatches>0;
+   sec.classList.toggle("search-hidden",!match);
+   sec.classList.toggle("search-match",match);
+   if(match)visible++;
+ });
+ clearSearch.style.display=q?"block":"none";
+ searchStatus.textContent=q?(visible?visible+" resultado"+(visible===1?"":"s"):"Nenhum resultado encontrado"):"";
+}
 searchInput.addEventListener("input",runSearch);clearSearch.addEventListener("click",()=>{searchInput.value="";runSearch();searchInput.focus()});
 </script>
 </body></html>

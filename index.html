@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PlanScripts</title>
+<style>
+:root{--bg:#07090d;--card:#10141b;--card2:#151a23;--text:#f4f7fb;--muted:#929aaa;--line:#252c38;--accent:#7c5cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#151a28 0,#07090d 45%);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
+.wrap{max-width:920px;margin:auto;padding:42px 18px 60px}.hero{text-align:center;margin-bottom:30px}.hero h1{font-size:38px;margin:0 0 8px;letter-spacing:-1px}.hero p{margin:0;color:var(--muted)}
+.categories{display:grid;gap:12px}.category{border:1px solid var(--line);border-radius:14px;background:rgba(16,20,27,.92);overflow:hidden;box-shadow:0 8px 30px #0004}
+.cat-btn{width:100%;border:0;background:none;color:var(--text);padding:18px 20px;display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:800;text-align:left;cursor:pointer}.cat-btn:hover{background:var(--card2)}.arrow{transition:.2s;color:var(--muted)}.category.open .arrow{transform:rotate(180deg)}
+.items{display:grid;grid-template-rows:0fr;transition:grid-template-rows .28s ease}.category.open .items{grid-template-rows:1fr}.inner{overflow:hidden}.list{padding:0 14px 14px;border-top:1px solid var(--line)}
+.item{padding:15px 6px;border-bottom:1px solid var(--line)}.item:last-child{border-bottom:0}.name{font-weight:800;margin-bottom:5px}.desc{color:var(--muted);font-size:14px;line-height:1.45;margin-bottom:9px}.link{display:inline-block;color:#a995ff;text-decoration:none;font-size:13px;font-weight:700}.link:hover{text-decoration:underline}
+.footer{text-align:center;color:#666e7d;font-size:12px;margin-top:28px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero"><h1>PlanScripts</h1><p>Catálogo de ferramentas e scripts por plataforma.</p></header>
+<main class="categories" id="categories"></main>
+<div class="footer">Links externos • catálogo independente</div>
+</div>
+<script>
+const data={
+"TAREFAS / TAREFASP":[
+["Zunder","Ferramenta que reúne recursos para plataformas educacionais, incluindo TarefaSP.","https://zunder.lat/"],
+["OpenFuture","Hub com recursos para diferentes plataformas da Sala do Futuro.","https://openfuture.lol/"],
+["SalvaEstudante","Site voltado a ferramentas para tarefas e plataformas educacionais.","https://salvaestudante.com/"],
+["Doritus","Ferramenta/hub relacionado ao ecossistema CMSP e Sala do Futuro.","https://doritus.cloud/"],
+["Zenith Hub","Hub com ferramentas para várias plataformas educacionais.","https://cupiditys.netlify.app/"],
+["CMSP Hacks","Portal/hub de ferramentas relacionadas ao CMSP e Sala do Futuro.","https://cmsphacks.xyz/"],
+["DarkModde","Hub de ferramentas para plataformas do CMSP.","https://darkmodde.xyz/"],
+["DoritosScript","Catálogo que reúne links e ferramentas para diversas plataformas.","https://doritosscript.com/"],
+["Crimson Hub — Tarefas","Página específica de tarefas.","https://crimsonzerohub.xyz/tarefas"]
+],
+"REDAÇÃO":[
+["Zunder","Recurso para a plataforma de Redação Paulista.","https://zunder.lat/"],
+["OpenFuture","Hub com ferramentas educacionais, incluindo recursos de redação.","https://openfuture.lol/"],
+["SalvaEstudante","Ferramenta relacionada às plataformas educacionais.","https://salvaestudante.com/"],
+["Zenith Hub","Hub com recursos para plataformas educacionais.","https://cupiditys.netlify.app/"],
+["DoritosScript","Catálogo de ferramentas que inclui RedaçãoSP.","https://doritosscript.com/"],
+["Crimson Hub — Redação","Página específica para Redação.","https://crimsonzerohub.xyz/redacao"]
+],
+"KHAN ACADEMY":[
+["Zunder","Hub que declara suporte a Khan Academy.","https://zunder.lat/"],
+["OpenFuture","Hub com ferramentas para diferentes plataformas.","https://openfuture.lol/"],
+["Zenith Hub","Hub com recursos para Khan Academy e outras plataformas.","https://cupiditys.netlify.app/"],
+["DoritosScript","Catálogo que inclui Khan Academy.","https://doritosscript.com/"],
+["Crimson Hub — Khan","Página específica para Khan.","https://crimsonzerohub.xyz/khan"]
+],
+"MATIFIC":[
+["Zunder","Hub que declara suporte a Matific.","https://zunder.lat/"],
+["OpenFuture","Hub de ferramentas educacionais.","https://openfuture.lol/"],
+["Zenith Hub","Hub com recursos para plataformas educacionais.","https://cupiditys.netlify.app/"],
+["DoritosScript","Catálogo que inclui Matific.","https://doritosscript.com/"]
+],
+"LEIASP":[
+["Zunder","Hub que declara suporte ao LeiaSP+.","https://zunder.lat/"],
+["OpenFuture","Hub com recursos para plataformas educacionais.","https://openfuture.lol/"],
+["Zenith Hub","Hub com ferramentas para diversas plataformas.","https://cupiditys.netlify.app/"],
+["DoritosScript","Catálogo que inclui LeiaSP.","https://doritosscript.com/"],
+["Crimson Hub — LeiaSP","Página específica para LeiaSP.","https://crimsonzerohub.xyz/leiasp"]
+],
+"SPEAK":[
+["Zunder","Hub que declara suporte ao SPeak.","https://zunder.lat/"],
+["OpenFuture","Hub de ferramentas educacionais.","https://openfuture.lol/"],
+["Zenith Hub","Hub com recursos para plataformas educacionais.","https://cupiditys.netlify.app/"],
+["DoritosScript","Catálogo que inclui SPeak.","https://doritosscript.com/"],
+["Speakify","Site dedicado ao SPeak.","https://speakify.cupiditys.lol/"]
+],
+"ALURA":[
+["Zunder","Hub que declara suporte à Alura.","https://zunder.lat/"],
+["OpenFuture","Hub com recursos para várias plataformas.","https://openfuture.lol/"],
+["Zenith Hub","Hub com ferramentas educacionais.","https://cupiditys.netlify.app/"],
+["DoritosScript","Catálogo que inclui Alura.","https://doritosscript.com/"],
+["Crimson Hub — Alura","Página específica para Alura.","https://crimsonzerohub.xyz/alura"]
+],
+"EXPANSÃO":[
+["Zunder","Hub que declara suporte à Expansão.","https://zunder.lat/"],
+["OpenFuture","Hub de ferramentas educacionais.","https://openfuture.lol/"],
+["Zenith Hub","Hub com recursos para plataformas educacionais.","https://cupiditys.netlify.app/"],
+["DoritosScript","Catálogo que inclui Expansão.","https://doritosscript.com/"],
+["Crimson Hub — Expansão","Página específica para Expansão.","https://crimsonzerohub.xyz/expansao"]
+],
+"PREPARASP":[
+["Zunder","Hub que declara suporte ao PreparaSP.","https://zunder.lat/"],
+["OpenFuture","Hub de ferramentas educacionais.","https://openfuture.lol/"],
+["Zenith Hub","Hub com recursos para várias plataformas.","https://cupiditys.netlify.app/"],
+["DoritosScript","Catálogo que inclui PreparaSP.","https://doritosscript.com/"],
+["Crimson Hub — PreparaSP","Página específica para PreparaSP.","https://crimsonzerohub.xyz/preparasp"]
+],
+"OUTRAS PLATAFORMAS":[
+["Zunder","Declara suporte a Educação Profissional e Open English, entre outras plataformas.","https://zunder.lat/"],
+["OpenFuture","Hub com várias plataformas educacionais.","https://openfuture.lol/"],
+["Zenith Hub","Hub com ferramentas para diferentes plataformas.","https://cupiditys.netlify.app/"],
+["DoritosScript","Catálogo que reúne Educação Profissional, Open English, Apostilas e outras plataformas.","https://doritosscript.com/"],
+["Crimson Hub","Hub com páginas específicas para diferentes plataformas.","https://crimsonzerohub.xyz/"]
+]
+};
+const root=document.getElementById("categories");
+Object.entries(data).forEach(([cat,items])=>{
+ const section=document.createElement("section");section.className="category";
+ const btn=document.createElement("button");btn.className="cat-btn";btn.innerHTML='<span>'+cat+'</span><span class="arrow">⌄</span>';
+ const itemsWrap=document.createElement("div");itemsWrap.className="items";const inner=document.createElement("div");inner.className="inner";const list=document.createElement("div");list.className="list";
+ items.forEach(([name,desc,url])=>{const el=document.createElement("article");el.className="item";el.innerHTML='<div class="name">'+name+'</div><div class="desc">'+desc+'</div><a class="link" href="'+url+'" target="_blank" rel="noopener noreferrer">Abrir site ↗</a>';list.appendChild(el)});
+ inner.appendChild(list);itemsWrap.appendChild(inner);section.append(btn,itemsWrap);btn.onclick=()=>section.classList.toggle("open");root.appendChild(section);
+});
+</script>
+</body>
+</html>

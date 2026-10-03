@@ -45,7 +45,7 @@ footer{border-top:1px solid var(--line);background:#07090d;margin-top:10px}.foot
 <body class="modal-open">
 <div class="overlay" id="termsModal">
 <div class="modal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
-<button class="modal-x ready" id="modalX" aria-label="Fechar"><span>×</span></button><div class="modal-content"><h2 id="termsTitle">Antes de entrar 👋</h2>
+<button type="button" class="modal-x ready" id="modalX" aria-label="Fechar" onclick="document.getElementById('termsModal').remove();document.body.classList.remove('modal-open')"><span>×</span></button><div class="modal-content"><h2 id="termsTitle">Antes de entrar 👋</h2>
 <p>Você está entrando no <strong>planeforstudents</strong>, um catálogo independente de links e ferramentas.</p>
 <div class="terms"><strong>Termos de uso</strong><br>O PLANE SCRIPTS é apenas um catálogo/índice e não é afiliado às plataformas listadas. Os links levam a sites externos, que possuem seus próprios termos, políticas e responsáveis. Use qualquer ferramenta de acordo com as regras da respectiva plataforma. Não fornecemos nem solicitamos senhas ou dados pessoais. Ao continuar, você declara que leu este aviso e é responsável pelo uso dos links externos.</div>
 </div>
@@ -121,10 +121,8 @@ Object.entries(data).forEach(([cat,arr])=>{
  inner.appendChild(list);wrap.appendChild(inner);sec.append(btn,wrap);btn.onclick=()=>sec.classList.toggle("open");root.appendChild(sec);
 });
 const modal=document.getElementById("termsModal");
-const modalX=document.getElementById("modalX");
-function closeModal(){modal.style.display="none";document.body.classList.remove("modal-open")}
-modalX.onclick=closeModal;
-function showTerms(){modal.style.display="grid";document.body.classList.add("modal-open")}
+function closeModal(){const m=document.getElementById("termsModal");if(m)m.remove();document.body.classList.remove("modal-open")}
+function showTerms(){const m=document.getElementById("termsModal");if(m){m.style.display="grid";document.body.classList.add("modal-open")}}
 
 const searchInput=document.getElementById("searchInput"),clearSearch=document.getElementById("clearSearch"),searchStatus=document.getElementById("searchStatus");
 function normalizeSearch(v){return v.normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().trim()}

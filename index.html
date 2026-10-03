@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PLANE SCRIPTS — Central de Scripts</title>
-<meta name="description" content="PLANE SCRIPTS — catálogo independente de scripts e ferramentas por plataforma.">
+<title>planeforstudents — Central de Scripts</title>
+<meta name="description" content="planeforstudents — central de scripts e ferramentas por plataforma.">
 <style>
 :root{--bg:#050608;--surface:#0d1016;--surface2:#121721;--surface3:#171d28;--line:#2a2d31;--text:#f7f8fb;--muted:#a1a5ad;--accent:#c6a95b;--accent2:#e1c77a}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 500px at 50% -10%,#24231f 0%,#090b10 55%,#050608 100%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
@@ -14,19 +14,24 @@ footer{border-top:1px solid var(--line);background:#07090d;margin-top:10px}.foot
 .overlay{position:fixed;inset:0;background:#000b;backdrop-filter:blur(10px);display:grid;place-items:center;padding:18px;z-index:1000}.modal{position:relative;width:min(570px,100%);background:linear-gradient(150deg,#151a23,#0b0e13);border:1px solid #303846;border-radius:24px;box-shadow:0 30px 100px #000b;padding:30px}.modal-content{padding:0}.modal h2{margin:0 42px 10px 0;font-size:25px}.modal strong{color:#e2ca7d}.modal p{color:var(--muted);font-size:13px;line-height:1.65}.terms{background:#090c11;border:1px solid var(--line);border-radius:15px;padding:15px;margin:18px 0;color:#a8afbb;font-size:12px;line-height:1.65}.modal-x{position:absolute;top:16px;right:16px;width:42px;height:42px;border:1px solid #343941;border-radius:11px;background:#11151b;color:#8d95a2;font-size:22px;line-height:1;cursor:not-allowed;display:grid;place-items:center}.modal-x.ready{background:#b3262d;border-color:#d64a50;color:#fff;cursor:pointer}.modal-x #countdown{font-size:14px;font-weight:900}.modal-x:not(.ready){font-size:14px;font-weight:900}.close{width:100%;border:0;border-radius:13px;padding:14px;background:var(--accent);color:#080909;font-weight:900;cursor:pointer;transition:.2s}.close:disabled{background:#252b36;color:#676f7d;cursor:not-allowed}.timer{display:block;font-size:11px;margin-top:7px;text-align:center;color:#69717f}
 @media(max-width:700px){.footer-inner{grid-template-columns:1fr 1fr}.footer-inner>div:first-child{grid-column:1/-1}.hero{padding-top:55px}.cat-btn{padding:22px 18px}.cat-title{font-size:16px}}
 @media(max-width:480px){.footer-inner{grid-template-columns:1fr}.footer-inner>div:first-child{grid-column:auto}.hero h1{font-size:47px}}
-.footer-about{min-width:0}.footer-links-title{margin-top:22px!important}.footer-link{display:inline-block!important;margin-top:2px}.developer-card{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #292d33;border-radius:13px;background:#0c0f14}.dev-mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:#20242b;border:1px solid #3b3f46;color:#d6bd70;font-weight:900}.developer-card div:last-child{display:flex;flex-direction:column}.developer-card strong{font-size:13px}.developer-card span{font-size:10px;color:#818895;margin-top:2px}.footer-bottom-inner{width:min(1040px,calc(100% - 32px));margin:auto;display:flex;justify-content:space-between;gap:10px}.footer-bottom{padding:16px 0;color:#626a78;font-size:11px}@media(max-width:700px){.footer-bottom-inner{flex-direction:column}.footer-inner{grid-template-columns:1fr 1fr}.footer-inner>div:first-child{grid-column:1/-1}}@media(max-width:480px){.footer-inner{grid-template-columns:1fr}.footer-inner>div:first-child{grid-column:auto}}</style>
+.footer-about{min-width:0}.footer-links-title{margin-top:22px!important}.footer-link{display:inline-block!important;margin-top:2px}.developer-card{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #292d33;border-radius:13px;background:#0c0f14}.dev-mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:#20242b;border:1px solid #3b3f46;color:#d6bd70;font-weight:900}.developer-card div:last-child{display:flex;flex-direction:column}.developer-card strong{font-size:13px}.developer-card span{font-size:10px;color:#818895;margin-top:2px}.footer-bottom-inner{width:min(1040px,calc(100% - 32px));margin:auto;display:flex;justify-content:space-between;gap:10px}.footer-bottom{padding:16px 0;color:#626a78;font-size:11px}@media(max-width:700px){.footer-bottom-inner{flex-direction:column}.footer-inner{grid-template-columns:1fr 1fr}.footer-inner>div:first-child{grid-column:1/-1}}@media(max-width:480px){.footer-inner{grid-template-columns:1fr}.footer-inner>div:first-child{grid-column:auto}}<style>
+.brand-logo{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-size:clamp(42px,8vw,76px)!important;letter-spacing:-.06em!important}
+.plane-word{color:#fff}.students-word{color:var(--accent2);font-size:.55em;letter-spacing:-.04em}
+.orbit-plane{position:absolute;left:50%;top:50%;width:1em;height:1em;transform:translate(-50%,-50%);border:2px solid transparent;border-radius:50%;animation:planeOrbit 3.5s linear infinite;color:var(--accent2);font-size:.27em;display:grid;place-items:center}
+@keyframes planeOrbit{from{transform:translate(-50%,-50%) rotate(0deg) translateX(2.35em) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(2.35em) rotate(-360deg)}}
+</style></style>
 </head>
 <body class="modal-open">
 <div class="overlay" id="termsModal">
 <div class="modal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
 <button class="modal-x" id="modalX" aria-label="Fechar" disabled><span id="countdown">3</span></button><div class="modal-content"><h2 id="termsTitle">Antes de entrar 👋</h2>
-<p>Você está entrando no <strong>PLANE SCRIPTS</strong>, um catálogo independente de links e ferramentas.</p>
+<p>Você está entrando no <strong>planeforstudents</strong>, um catálogo independente de links e ferramentas.</p>
 <div class="terms"><strong>Termos de uso</strong><br>O PLANE SCRIPTS é apenas um catálogo/índice e não é afiliado às plataformas listadas. Os links levam a sites externos, que possuem seus próprios termos, políticas e responsáveis. Use qualquer ferramenta de acordo com as regras da respectiva plataforma. Não fornecemos nem solicitamos senhas ou dados pessoais. Ao continuar, você declara que leu este aviso e é responsável pelo uso dos links externos.</div>
 </div>
 </div>
 </div>
 <header class="hero wrap">
-<h1>PLANE <span>SCRIPTS</span></h1>
+<h1 class="brand-logo"><span class="plane-word">PLANE</span><span class="orbit-plane" aria-hidden="true">✈</span><span class="students-word">FORSTUDENTS</span></h1>
 <p>Uma central organizada para encontrar scripts e ferramentas por plataforma. Abra uma categoria, veja as opções e acesse o site desejado.</p>
 <div class="hint">▼ Explore as categorias abaixo</div>
 </header>
@@ -34,7 +39,7 @@ footer{border-top:1px solid var(--line);background:#07090d;margin-top:10px}.foot
 <footer>
 <div class="footer-inner">
   <div class="footer-about">
-    <div class="brand">PLANE SCRIPTS</div>
+    <div class="brand">planeforstudents</div>
     <p>Scripts e ferramentas organizados por plataforma.</p>
     <div class="footer-socials">
       <a class="footer-icon" href="#categories" aria-label="Categorias"><svg viewBox="0 0 24 24"><path d="M4 5h6v6H4zM14 5h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></a>
@@ -51,12 +56,12 @@ footer{border-top:1px solid var(--line);background:#07090d;margin-top:10px}.foot
   </div>
   <div>
     <h3>Desenvolvedor</h3>
-    <div class="developer-card"><div class="dev-mark">R</div><div><strong>ryandev</strong><span>Desenvolvedor do PLANE SCRIPTS</span></div></div>
+    <div class="developer-card"><div class="dev-mark">R</div><div><strong>ryandev</strong><span>Desenvolvedor do planeforstudents</span></div></div>
     <h3 class="footer-links-title">Site</h3>
     <a class="footer-link" href="#" onclick="showTerms();return false">Termos de uso</a>
   </div>
 </div>
-<div class="footer-bottom"><div class="footer-bottom-inner"><span>© 2026 PLANE SCRIPTS</span><span>Feito por ryandev</span></div></div>
+<div class="footer-bottom"><div class="footer-bottom-inner"><span>© 2026 planeforstudents</span><span>Feito por ryandev</span></div></div>
 </footer>
 <script>
 const data={

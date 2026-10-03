@@ -17,16 +17,18 @@ footer{border-top:1px solid var(--line);background:#07090d;margin-top:10px}.foot
 .footer-about{min-width:0}.footer-links-title{margin-top:22px!important}.footer-link{display:inline-block!important;margin-top:2px}.developer-card{display:flex;align-items:center;gap:10px;padding:10px;border:1px solid #292d33;border-radius:13px;background:#0c0f14}.dev-mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:#20242b;border:1px solid #3b3f46;color:#d6bd70;font-weight:900}.developer-card div:last-child{display:flex;flex-direction:column}.developer-card strong{font-size:13px}.developer-card span{font-size:10px;color:#818895;margin-top:2px}.footer-bottom-inner{width:min(1040px,calc(100% - 32px));margin:auto;display:flex;justify-content:space-between;gap:10px}.footer-bottom{padding:16px 0;color:#626a78;font-size:11px}@media(max-width:700px){.footer-bottom-inner{flex-direction:column}.footer-inner{grid-template-columns:1fr 1fr}.footer-inner>div:first-child{grid-column:1/-1}}@media(max-width:480px){.footer-inner{grid-template-columns:1fr}.footer-inner>div:first-child{grid-column:auto}}<style>
 .brand-logo{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:clamp(42px,8vw,76px)!important;letter-spacing:-.065em!important;white-space:nowrap}
 .plane-word{color:#fff;position:relative;z-index:2}.students-word{color:var(--accent2);font-size:.55em;letter-spacing:-.04em;position:relative;z-index:2}
-.plane-orbit{position:absolute;left:50%;top:50%;width:2.05em;height:1.15em;transform:translate(-50%,-50%);pointer-events:none;animation:planeOrbit 4.2s linear infinite}
-.plane-3d{position:absolute;left:50%;top:50%;display:block;font-size:.30em;color:#f1d98b;text-shadow:1px 1px 0 #9b7d32,2px 2px 0 #5d4a22,0 0 12px #c6a95b99;filter:drop-shadow(0 4px 3px #000);transform:translate(-50%,-50%) rotate(-12deg) perspective(180px) rotateX(18deg);transform-origin:center}
+.plane-orbit{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;animation:planeOrbit 4.2s cubic-bezier(.55,.05,.45,.95) infinite;z-index:3}
+.plane-3d{position:absolute;left:50%;top:50%;display:block;font-size:.30em;color:#f1d98b;text-shadow:1px 1px 0 #9b7d32,2px 2px 0 #5d4a22,0 0 12px #c6a95b99;filter:drop-shadow(0 4px 3px #000);transform:translate(-50%,-50%) perspective(180px) rotateX(18deg);transform-origin:center}
 @keyframes planeOrbit{
-0%{transform:translate(-50%,-50%) rotate(-8deg) translateX(-2.05em) translateY(-.02em) rotate(8deg)}
-25%{transform:translate(-50%,-50%) rotate(82deg) translateX(-2.05em) translateY(-.02em) rotate(-82deg)}
-50%{transform:translate(-50%,-50%) rotate(172deg) translateX(-2.05em) translateY(-.02em) rotate(-172deg)}
-75%{transform:translate(-50%,-50%) rotate(262deg) translateX(-2.05em) translateY(-.02em) rotate(-262deg)}
-100%{transform:translate(-50%,-50%) rotate(352deg) translateX(-2.05em) translateY(-.02em) rotate(-352deg)}
+0%{left:3.55em;top:.12em;transform:rotate(12deg)}
+18%{left:2.45em;top:-.48em;transform:rotate(32deg)}
+36%{left:1.15em;top:-.68em;transform:rotate(68deg)}
+50%{left:.05em;top:-.05em;transform:rotate(104deg)}
+64%{left:1.15em;top:.60em;transform:rotate(142deg)}
+82%{left:2.45em;top:.42em;transform:rotate(168deg)}
+100%{left:3.55em;top:.12em;transform:rotate(192deg)}
 }
-</style></style>
+</style>
 </head>
 <body class="modal-open">
 <div class="overlay" id="termsModal">
@@ -81,7 +83,7 @@ const data={
 "ALURA":["Ferramentas relacionadas à Alura.","Zunder|Hub que declara suporte à Alura.|https://zunder.lat/","OpenFuture|Hub com recursos para várias plataformas.|https://openfuture.lol/","Zenith Hub|Hub com ferramentas educacionais.|https://cupiditys.netlify.app/","DoritosScript|Catálogo que inclui Alura.|https://doritosscript.com/","Crimson Hub — Alura|Página específica para Alura.|https://crimsonzerohub.xyz/alura"],
 "EXPANSÃO":["Ferramentas relacionadas à Expansão.","Zunder|Hub que declara suporte à Expansão.|https://zunder.lat/","OpenFuture|Hub de ferramentas educacionais.|https://openfuture.lol/","Zenith Hub|Hub com recursos educacionais.|https://cupiditys.netlify.app/","DoritosScript|Catálogo que inclui Expansão.|https://doritosscript.com/","Crimson Hub — Expansão|Página específica para Expansão.|https://crimsonzerohub.xyz/expansao"],
 "PREPARASP":["Ferramentas relacionadas ao PreparaSP.","Zunder|Hub que declara suporte ao PreparaSP.|https://zunder.lat/","OpenFuture|Hub de ferramentas educacionais.|https://openfuture.lol/","Zenith Hub|Hub com recursos para plataformas.|https://cupiditys.netlify.app/","DoritosScript|Catálogo que inclui PreparaSP.|https://doritosscript.com/","Crimson Hub — PreparaSP|Página específica para PreparaSP.|https://crimsonzerohub.xyz/preparasp"],
-"OUTRAS PLATAFORMAS":["Outras plataformas encontradas no catálogo.","Zunder|Declara suporte a Educação Profissional e Open English, entre outras.|https://zunder.lat/","OpenFuture|Hub com várias plataformas educacionais.|https://openfuture.lol/","Zenith Hub|Hub com ferramentas para diferentes plataformas.|https://cupiditys.netlify.app/","DoritosScript|Inclui Educação Profissional, Open English e Apostilas.|https://doritosscript.com/","Crimson Hub|Hub com páginas para diferentes plataformas.|https://crimsonzerohub.xyz/"]
+"OUTRAS PLATAFORMAS":["Outras plataformas encontradas no catálogo.","Doritus|Ferramenta relacionada ao ecossistema CMSP.|https://doritus.cloud/","Zunder|Declara suporte a Educação Profissional e Open English, entre outras.|https://zunder.lat/","OpenFuture|Hub com várias plataformas educacionais.|https://openfuture.lol/","Zenith Hub|Hub com ferramentas para diferentes plataformas.|https://cupiditys.netlify.app/","DoritosScript|Inclui Educação Profissional, Open English e Apostilas.|https://doritosscript.com/","Crimson Hub|Hub com páginas para diferentes plataformas.|https://crimsonzerohub.xyz/"]
 };
 const root=document.getElementById("categories");
 function iconFor(cat){

@@ -181,10 +181,22 @@ searchInput.addEventListener("input",runSearch);clearSearch.addEventListener("cl
 (function(){
   const loader=document.getElementById("planeLoading");
   if(!loader)return;
-  let ready=false;
-  const hide=()=>{if(ready)return;ready=true;setTimeout(()=>loader.classList.add("hidden"),850)};
-  if(document.readyState==="complete") hide();
-  else window.addEventListener("load",hide,{once:true});
-  setTimeout(hide,4000);
+  const img=new Image();
+  let pageReady=document.readyState==="complete";
+  let gifReady=false;
+  let released=false;
+  function release(){
+    if(released||!pageReady||!gifReady)return;
+    released=true;
+    setTimeout(function(){loader.classList.add("hidden")},350);
+  }
+  img.onload=function(){gifReady=true;release()};
+  img.onerror=function(){gifReady=true;release()};
+  img.src="https://66.media.tumblr.com/ee70ab530fccd222123c594443681bbf/tumblr_ob172q8nrK1rp0vkjo1_500.gif";
+  if(!pageReady){
+    window.addEventListener("load",function(){pageReady=true;release()},{once:true});
+  }else{
+    release();
+  }
 })();
 </script></body></html>

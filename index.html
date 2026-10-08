@@ -42,8 +42,27 @@ footer{border-top:1px solid var(--line);background:#f8f8f8;margin-top:10px}.foot
 100%{left:3.55em;top:.12em;transform:rotate(192deg)}
 }
 </style>
-</head>
-<body class="modal-open">
+<style>
+#planeLoading{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#111;opacity:1;visibility:visible;transition:opacity .55s ease,visibility .55s ease}
+#planeLoading.hidden{opacity:0;visibility:hidden;pointer-events:none}
+#planeLoading::before{content:"";position:absolute;inset:0;background-image:url("https://66.media.tumblr.com/ee70ab530fccd222123c594443681bbf/tumblr_ob172q8nrK1rp0vkjo1_500.gif");background-position:center;background-size:cover;background-repeat:no-repeat;transform:scale(1.03)}
+#planeLoading::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.38)}
+.loading-content{position:relative;z-index:2;text-align:center;color:#fff;padding:24px}
+.loading-title{font-size:clamp(38px,10vw,76px);font-weight:950;letter-spacing:-.07em;line-height:.95;text-shadow:0 3px 18px rgba(0,0,0,.65)}
+.loading-title span{color:#d71920}
+.loading-subtitle{margin-top:14px;font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+.loading-bar{width:min(230px,65vw);height:4px;margin:22px auto 0;border-radius:999px;background:rgba(255,255,255,.3);overflow:hidden}
+.loading-bar i{display:block;height:100%;width:35%;border-radius:inherit;background:#d71920;animation:loadingMove 1.15s ease-in-out infinite}
+@keyframes loadingMove{0%{transform:translateX(-120%)}100%{transform:translateX(350%)}}
+@media(prefers-reduced-motion:reduce){#planeLoading::before{transform:none}.loading-bar i{animation:none;width:100%}}
+</style></head>
+<body class="modal-open"><div id="planeLoading" aria-label="Carregando Plane Scripts" role="status">
+  <div class="loading-content">
+    <div class="loading-title">PLANE<span>FORSTUDENTS</span></div>
+    <div class="loading-subtitle">Carregando recursos...</div>
+    <div class="loading-bar" aria-hidden="true"><i></i></div>
+  </div>
+</div>
 <div class="overlay" id="termsModal">
 <div class="modal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
 <button type="button" class="modal-x ready" id="modalX" aria-label="Fechar" onclick="document.getElementById('termsModal').remove();document.body.classList.remove('modal-open')"><span>×</span></button><div class="modal-content"><h2 id="termsTitle">Antes de entrar 👋</h2>
@@ -158,4 +177,14 @@ function runSearch(){
 }
 searchInput.addEventListener("input",runSearch);clearSearch.addEventListener("click",()=>{searchInput.value="";runSearch();searchInput.focus()});
 </script>
-</body></html>
+<script>
+(function(){
+  const loader=document.getElementById("planeLoading");
+  if(!loader)return;
+  let ready=false;
+  const hide=()=>{if(ready)return;ready=true;setTimeout(()=>loader.classList.add("hidden"),850)};
+  if(document.readyState==="complete") hide();
+  else window.addEventListener("load",hide,{once:true});
+  setTimeout(hide,4000);
+})();
+</script></body></html>

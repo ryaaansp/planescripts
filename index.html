@@ -188,7 +188,7 @@ searchInput.addEventListener("input",runSearch);clearSearch.addEventListener("cl
   function release(){
     if(released||!pageReady||!gifReady)return;
     released=true;
-    setTimeout(function(){loader.classList.add("hidden")},350);
+    setTimeout(function(){loader.classList.add("hidden")},5000);
   }
   img.onload=function(){gifReady=true;release()};
   img.onerror=function(){gifReady=true;release()};

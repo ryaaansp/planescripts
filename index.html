@@ -45,7 +45,7 @@ footer{border-top:1px solid var(--line);background:#f8f8f8;margin-top:10px}.foot
 <style>
 #planeLoading{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#111;opacity:1;visibility:visible;transition:opacity .55s ease,visibility .55s ease}
 #planeLoading.hidden{opacity:0;visibility:hidden;pointer-events:none}
-#planeLoading::before{content:"";position:absolute;inset:0;background-image:url("https://66.media.tumblr.com/ee70ab530fccd222123c594443681bbf/tumblr_ob172q8nrK1rp0vkjo1_500.gif");background-position:center;background-size:cover;background-repeat:no-repeat;transform:scale(1.03)}
+#planeLoading::before{content:"";position:absolute;inset:0;background-image:url("https://media1.tenor.com/m/z9M1ypkID6oAAAAd/mc-ig-parado.gif");background-position:center;background-size:cover;background-repeat:no-repeat;transform:scale(1.03)}
 #planeLoading::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.38)}
 .loading-content{position:relative;z-index:2;text-align:center;color:#fff;padding:24px}
 .loading-title{font-size:clamp(38px,10vw,76px);font-weight:950;letter-spacing:-.07em;line-height:.95;text-shadow:0 3px 18px rgba(0,0,0,.65)}
@@ -55,8 +55,28 @@ footer{border-top:1px solid var(--line);background:#f8f8f8;margin-top:10px}.foot
 .loading-bar i{display:block;height:100%;width:35%;border-radius:inherit;background:#d71920;animation:loadingMove 1.15s ease-in-out infinite}
 @keyframes loadingMove{0%{transform:translateX(-120%)}100%{transform:translateX(350%)}}
 @media(prefers-reduced-motion:reduce){#planeLoading::before{transform:none}.loading-bar i{animation:none;width:100%}}
+</style>
+<style>
+:root{--bg:#ededed;--surface:#f2f2f2;--surface2:#dedede;--surface3:#d2d2d2;--line:#d71920;--text:#000;--muted:#333;--accent:#d71920;--accent2:#d71920}
+body{background:#ededed!important;color:#000!important}
+.hero h1,.hero p,.hero .hint,.cat-title,.cat-desc,.count,.name,.desc,.footer p,.footer a,.footer h3,.brand,.modal p,.terms,.overview-grid span,.overview-detail{color:#000}
+.hero h1 .sao,.loading-title span{color:#d71920!important}
+.site-brand{gap:.16em!important;white-space:normal!important;flex-wrap:wrap;justify-content:center}
+.site-brand>span:not(.sao){color:#000!important}
+.cat-btn,.category,footer,.modal,.terms,.catalog-overview,.search-wrap,.search-wrap input,.discord-card,.developer-card,.footer-icon,.overview-grid span{background-color:#ededed!important}
+.cat-icon,.chevron,.discord-avatar,.dev-mark{color:#d71920!important;background:#e1e1e1!important;border-color:#d71920!important}
+.link,.footer h3,.count,.overview-label,.footer-icon{color:#d71920!important}
+.discord-join{background:#d71920!important;color:#fff!important}
+#planeLoading{background:#ededed!important}
+#planeLoading::before{background-position:center;background-size:cover;background-repeat:no-repeat;transform:none}
+#planeLoading::after{background:rgba(237,237,237,.12)!important}
+.loading-content{color:#000!important}
+.loading-title{text-shadow:0 1px 3px rgba(255,255,255,.65)!important}
+.loading-subtitle{text-shadow:none!important;color:#000!important}
+.loading-bar{background:rgba(0,0,0,.18)!important}
+.loading-bar i{background:#d71920!important}
 </style></head>
-<body class="modal-open"><div id="planeLoading" aria-label="Carregando Plane Scripts" role="status">
+<body class="modal-open"><div id="planeLoading" aria-label="Carregando Scripts São Paulo" role="status">
   <div class="loading-content">
     <div class="loading-title">SCRIPTS <span>SÃO</span> PAULO</div>
     <div class="loading-subtitle">Carregando recursos...</div>
@@ -67,12 +87,12 @@ footer{border-top:1px solid var(--line);background:#f8f8f8;margin-top:10px}.foot
 <div class="modal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
 <button type="button" class="modal-x ready" id="modalX" aria-label="Fechar" onclick="document.getElementById('termsModal').remove();document.body.classList.remove('modal-open')"><span>×</span></button><div class="modal-content"><h2 id="termsTitle">Antes de entrar 👋</h2>
 <p>Você está entrando no <strong>Scripts São Paulo</strong>, um catálogo independente de links e ferramentas.</p>
-<div class="terms"><strong>Termos de uso</strong><br>O PLANE SCRIPTS é apenas um catálogo/índice e não é afiliado às plataformas listadas. Os links levam a sites externos, que possuem seus próprios termos, políticas e responsáveis. Use qualquer ferramenta de acordo com as regras da respectiva plataforma. Não fornecemos nem solicitamos senhas ou dados pessoais. Ao continuar, você declara que leu este aviso e é responsável pelo uso dos links externos.</div>
+<div class="terms"><strong>Termos de uso</strong><br>O SCRIPTS SÃO PAULO é apenas um catálogo/índice e não é afiliado às plataformas listadas. Os links levam a sites externos, que possuem seus próprios termos, políticas e responsáveis. Use qualquer ferramenta de acordo com as regras da respectiva plataforma. Não fornecemos nem solicitamos senhas ou dados pessoais. Ao continuar, você declara que leu este aviso e é responsável pelo uso dos links externos.</div>
 </div>
 </div>
 </div>
 <header class="hero wrap">
-<h1 class="brand-logo"><span class="plane-word">PLANE</span><span class="students-word">FORSTUDENTS</span></h1>
+<h1 class="brand-logo site-brand"><span>SCRIPTS</span> <span class="sao">SÃO</span> <span>PAULO</span></h1>
 <p>Uma central organizada para encontrar scripts e ferramentas por plataforma. Abra uma categoria, veja as opções e acesse o site desejado.</p>
 <div class="hint">▼ Explore as categorias abaixo</div><div class="catalog-overview"><div class="overview-label">O que está disponível</div><div class="overview-grid"><span>TAREFAS / TAREFASP</span><span>REDAÇÃO</span><span>KHAN ACADEMY</span><span>MATIFIC</span><span>LEIASP</span><span>SPEAK</span><span>ALURA</span><span>EXPANSÃO</span><span>PREPARASP</span><span>APOSTILAS</span><span>OUTRAS PLATAFORMAS</span></div><div class="overview-detail">Zunder · OpenFuture · SalvaEstudante · Doritus · Zenith Hub · CMSP Hacks · DarkModde · DoritosScript · Crimson Hub · Speakify · Apostilas e materiais. Outros recursos.</div></div>
 <div class="search-wrap"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg><input id="searchInput" type="search" placeholder="Pesquisar plataforma ou ferramenta..." autocomplete="off" aria-label="Pesquisar plataforma ou ferramenta"><button id="clearSearch" type="button" aria-label="Limpar pesquisa">×</button></div><div id="searchStatus" class="search-status" aria-live="polite"></div>
@@ -192,7 +212,7 @@ searchInput.addEventListener("input",runSearch);clearSearch.addEventListener("cl
   }
   img.onload=function(){gifReady=true;release()};
   img.onerror=function(){gifReady=true;release()};
-  img.src="https://66.media.tumblr.com/ee70ab530fccd222123c594443681bbf/tumblr_ob172q8nrK1rp0vkjo1_500.gif";
+  img.src="https://media1.tenor.com/m/z9M1ypkID6oAAAAd/mc-ig-parado.gif";
   if(!pageReady){
     window.addEventListener("load",function(){pageReady=true;release()},{once:true});
   }else{

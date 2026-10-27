@@ -83,7 +83,72 @@ footer,.category,.cat-btn,.modal,.terms,.catalog-overview,.search-wrap,.discord-
 .loading-bar i{background:#d71920!important}
 .modal-x{color:#fff!important}
 .close{color:#fff!important}
-</style></head>
+</style>
+<style>
+/* Novo modelo das gavetas de categorias */
+.categories{gap:14px!important;padding-bottom:64px}
+.category{
+  position:relative;
+  border:1px solid #303030!important;
+  border-left:4px solid #d71920!important;
+  border-radius:14px!important;
+  background:linear-gradient(135deg,#111 0%,#080808 100%)!important;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,.22)!important;
+  transform:none!important;
+  transition:border-color .22s ease,box-shadow .22s ease!important
+}
+.category:hover,.category.open{
+  border-color:#d71920!important;
+  box-shadow:0 8px 28px rgba(215,25,32,.12)!important;
+  transform:none!important
+}
+.cat-btn{
+  position:relative;
+  min-height:104px;
+  padding:22px 24px!important;
+  gap:16px!important;
+  background:transparent!important;
+  color:#f5f5f5!important
+}
+.cat-icon{
+  width:50px!important;height:50px!important;flex:0 0 50px!important;
+  border-radius:13px!important;
+  border:1px solid #542124!important;
+  background:#1a1a1a!important;color:#ed2932!important
+}
+.cat-title{font-size:17px!important;font-weight:900!important;letter-spacing:.045em!important;color:#f5f5f5!important}
+.cat-desc{margin-top:5px!important;font-size:13px!important;color:#aaa!important;line-height:1.55!important}
+.count{
+  margin-top:9px!important;padding:4px 9px!important;
+  background:#1a1a1a!important;border:1px solid #4b2426!important;
+  border-radius:6px!important;color:#f05a60!important;font-weight:750!important
+}
+.chevron{
+  width:34px!important;height:34px!important;flex:0 0 34px;
+  border:1px solid #383838!important;border-radius:10px!important;
+  background:#171717!important;color:#eee!important;font-size:17px!important;
+  display:grid;place-items:center;transition:transform .25s ease,background .25s ease!important
+}
+.category.open .chevron{background:#d71920!important;border-color:#d71920!important;color:#fff!important}
+.items{background:#090909!important}
+.list{padding:4px 24px 12px!important;border-top:1px solid #292929!important}
+.item{padding:17px 4px!important;border-bottom:1px solid #252525!important}
+.name{font-size:14px!important;color:#f4f4f4!important}
+.tag{border-color:#3d3d3d!important;background:#151515!important;color:#aaa!important}
+.desc{color:#aaa!important;font-size:13px!important}
+.link{padding:8px 11px!important;border:1px solid #612327!important;border-radius:8px!important;background:#1a0c0d!important;color:#ff6268!important;transition:background .2s ease,color .2s ease!important}
+.link:hover{background:#d71920!important;color:#fff!important}
+@media(max-width:480px){
+ .cat-btn{min-height:92px;padding:18px 14px!important;gap:12px!important}
+ .cat-icon{width:43px!important;height:43px!important;flex-basis:43px!important}
+ .cat-title{font-size:14px!important}
+ .cat-desc{font-size:12px!important}
+ .chevron{width:30px!important;height:30px!important;flex-basis:30px}
+ .list{padding:4px 15px 10px!important}
+}
+</style>
+</head>
 <body class="modal-open"><div id="planeLoading" aria-label="Carregando Scripts São Paulo" role="status">
   <div class="loading-content">
     <div class="loading-title">SCRIPTS <span>SÃO</span> PAULO</div>

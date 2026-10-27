@@ -148,6 +148,26 @@ footer,.category,.cat-btn,.modal,.terms,.catalog-overview,.search-wrap,.discord-
  .list{padding:4px 15px 10px!important}
 }
 </style>
+
+<style>
+/* Corrige o fundo externo do popup de termos para o tema escuro */
+#termsModal.overlay{
+  background:rgba(0,0,0,.88)!important;
+  background-color:rgba(0,0,0,.88)!important;
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px)
+}
+#termsModal .modal{
+  background:#101010!important;
+  color:#f2f2f2!important;
+  border:1px solid #d71920!important;
+  box-shadow:0 20px 70px rgba(0,0,0,.7)!important
+}
+#termsModal .modal h2{color:#ff333b!important}
+#termsModal .modal p,#termsModal .terms{color:#e8e8e8!important}
+#termsModal .terms{background:#181818!important;border-color:#383838!important}
+#termsModal .modal-x{background:#d71920!important;color:#fff!important}
+</style>
 </head>
 <body class="modal-open"><div id="planeLoading" aria-label="Carregando Scripts São Paulo" role="status">
   <div class="loading-content">
